@@ -1,6 +1,5 @@
 import React from 'react';
-
-import {Input, ListGroup,ListGroupItem} from 'reactstrap';
+import {Card, CardBody, Container, Input, ListGroup,ListGroupItem} from 'reactstrap';
 import { Button } from 'reactstrap';
 import {
     BrowserRouter as Router,
@@ -8,65 +7,87 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import Donate from './Donate';
+
+
+
 function StudentHomePage()
 {return (<div>
-      <h3>
-      Student Page{ ' '}
+<Container/>
+  <Card>
+    <CardBody className='bg-warning'>
+    <h3 className="text-center my-3">
+      Student Page{' '}
     </h3>
+    </CardBody>
+  </Card>
+    
+
+    {/* menu */}
     <ListGroup >
+      
     <ListGroupItem
         action
-        href="/"
+        href="/donate"
         tag="a"
       >
-        Donate
+          Donate
       </ListGroupItem>
 
+
       &nbsp;&nbsp;&nbsp;
+
       <ListGroupItem
         action
-        href="/"
+        href="/sell"
         tag="a"
       >
         Sell
       </ListGroupItem>
+
+
       &nbsp;&nbsp;&nbsp;
+
       <ListGroupItem
         action
-        href="/"
+        href="/buy"
         tag="a"
       >
         Buy
       </ListGroupItem>
+
+
       &nbsp;&nbsp;&nbsp;
+
       <ListGroupItem
         action
-        href="/"
+        href="/lostandfound"
         tag="a"
       >
        Lost and Found
       </ListGroupItem>
       &nbsp;&nbsp;&nbsp;
+
+
       <ListGroupItem
         action
-        disabled
-        href="/"
+        href="/findRooms"
         tag="a"
       >
         Find Rooms
       </ListGroupItem>
+
+
       &nbsp;&nbsp;&nbsp;
     </ListGroup>
     <p />
   
-    
+{/*     
     <Input/>
     <Button
      color="primary"
      >
        Click Me
-    </Button>
+    </Button> */}
 
   </div>)
 };

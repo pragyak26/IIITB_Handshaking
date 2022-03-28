@@ -1,14 +1,23 @@
 import React from 'react';
 
 
-import { Form, Input } from 'reactstrap';
+import { Container, Form, Input } from 'reactstrap';
 import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
-
+import {Card,CardBody} from 'reactstrap';
 import { Button } from 'reactstrap';
 function Donate(){
 return(<div>
-  
+  <Container/>
+  <Card>
+    <CardBody className='bg-warning'>
+    <h4 className="text-center my-3">
+      Fill the details of item you want to donate{' '}
+    </h4>
+    </CardBody>
+  </Card>
+
+
     <Form>
   <FormGroup>
     <Label for="exampleEmail">

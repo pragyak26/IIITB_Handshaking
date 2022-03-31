@@ -13,71 +13,81 @@ import {
 function StudentHomePage()
 {return (<div>
 <Container/>
-  <Card>
+  {/* <Card>
     <CardBody className='bg-warning'>
     <h3 className="text-center my-3">
       Student Page{' '}
     </h3>
     </CardBody>
-  </Card>
+  </Card> */}
     
 
     {/* menu */}
     <ListGroup >
-      
+    <ListGroupItem
+        action
+        href="/home" style={{backgroundColor: "pink"}}
+        tag="a"
+      >
+          Home
+      </ListGroupItem>
+
+
+  
+
+
     <ListGroupItem
         action
         href="/donate"
-        tag="a"
+        tag="a" style={{color: "Blue"}} style={{backgroundColor: "pink"}}
       >
           Donate
       </ListGroupItem>
 
 
-      &nbsp;&nbsp;&nbsp;
-
+      
       <ListGroupItem
         action
         href="/sell"
-        tag="a"
+        tag="a" style={{backgroundColor: "pink"}}
       >
         Sell
       </ListGroupItem>
 
 
-      &nbsp;&nbsp;&nbsp;
+     
 
       <ListGroupItem
         action
         href="/buy"
-        tag="a"
+        tag="a" style={{backgroundColor: "pink"}}
       >
         Buy
       </ListGroupItem>
 
 
-      &nbsp;&nbsp;&nbsp;
+      
 
       <ListGroupItem
         action
         href="/lostandfound"
-        tag="a"
+        tag="a" style={{backgroundColor: "pink"}}
       >
        Lost and Found
       </ListGroupItem>
-      &nbsp;&nbsp;&nbsp;
+     
 
 
       <ListGroupItem
         action
         href="/findRooms"
-        tag="a"
+        tag="a" style={{backgroundColor: "pink"}}
       >
         Find Rooms
       </ListGroupItem>
 
 
-      &nbsp;&nbsp;&nbsp;
+     
     </ListGroup>
     <p />
   

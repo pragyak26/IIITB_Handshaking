@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import { Container, Form, Input } from 'reactstrap';
 import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
@@ -10,15 +8,18 @@ function Donate(){
 return(<div>
   <Container/>
   <Card>
-    <CardBody className='bg-warning'>
-    <h4 className="text-center my-3">
+    <CardBody>
+    <h8 style={{color: "Blue"}}  >
       Fill the details of item you want to donate{' '}
-    </h4>
+    </h8>
     </CardBody>
   </Card>
+    
+  
+<Card>
+  <CardBody>
 
-
-    <Form>
+  <Form>
   <FormGroup>
     <Label for="exampleEmail">
      Product Name
@@ -72,6 +73,10 @@ return(<div>
     Submit
   </Button>
 </Form>
+
+  </CardBody>
+</Card>
+    
 </div>)
 };
 

@@ -10,33 +10,54 @@ import FindRooms from './FindRooms';
 import Sell from './Sell';
 import { Container, Row ,Col} from 'reactstrap';
 import Lostandfound from './Lostandfound';
+import { Card,CardBody } from 'reactstrap';
+import Home from './Home';
 
 function App() {
   return (
  
     <div >
+      
       <Container>
+      <Container/>
+  <Card>
+    <CardBody className='bg-warning'>
+    <h4 style={{color: "Blue"}}   className="text-center my-3">
+      IIITB-Handshaking {' '}
+    </h4>
+    </CardBody>
+  </Card>
+      <BrowserRouter>
+      
         <Row>
-          
-          <BrowserRouter>
+        <Col md={3}>
+          <StudentHomePage/>
+          </Col>
+         
     
-    <Routes>
-  
-  <Route path="/" element={<StudentHomePage />} />
+          <Col md={9}>
+       
+          <Routes>
+  <Route path="/home" element={<Home />} />
   <Route path="/donate" element={<Donate />} />
   <Route path="/findRooms" element={<FindRooms />} />
   <Route path="/sell" element={<Sell />} />
   <Route path="/lostandfound" element={<Lostandfound />} />
+ 
   </Routes>
      
-  
-      </BrowserRouter>
-    
+  </Col>
+     
+     
+      {/* <Col md={8}>
+   
+      </Col> */}
         </Row>
    
-    
+       
+   </BrowserRouter>
    </Container>
-    
+   
     </div>
   );
 }

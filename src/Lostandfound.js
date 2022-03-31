@@ -5,18 +5,16 @@ import {Card,CardBody} from 'reactstrap';
 function Lostandfound(){
 return(<div>
     <Container/>
-    <Card>
-    <CardBody className='bg-warning'>
-    <h4 className="text-center my-3">
+   
+    <h8 className="text-center my-3" style={{color: "Blue"}}  >
       Lost and Found{' '}
-    </h4>
-    </CardBody>
-    </Card>
+    </h8>
+    
 
 
 <div>
   <Button
-    color="primary"
+    
   >
     Add found item
   </Button>

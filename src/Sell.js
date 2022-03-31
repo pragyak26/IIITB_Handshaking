@@ -10,10 +10,10 @@ function Sell(){
 return(<div>
   <Container/>
   <Card>
-    <CardBody className='bg-warning'>
-    <h4 className="text-center my-3">
-      Fill the details of item you want to sell{' '}
-    </h4>
+    <CardBody>
+    <h8 style={{color: "Blue"}}>
+      Fill the details of item you want to Sell{' '}
+    </h8>
     </CardBody>
   </Card>
 

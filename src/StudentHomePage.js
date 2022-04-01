@@ -32,10 +32,6 @@ function StudentHomePage()
           Home
       </ListGroupItem>
 
-
-  
-
-
     <ListGroupItem
         action
         href="/donate"
@@ -43,9 +39,7 @@ function StudentHomePage()
       >
           Donate
       </ListGroupItem>
-
-
-      
+ 
       <ListGroupItem
         action
         href="/sell"
@@ -53,9 +47,6 @@ function StudentHomePage()
       >
         Sell
       </ListGroupItem>
-
-
-     
 
       <ListGroupItem
         action
@@ -65,9 +56,6 @@ function StudentHomePage()
         Buy
       </ListGroupItem>
 
-
-      
-
       <ListGroupItem
         action
         href="/lostandfound"
@@ -76,8 +64,6 @@ function StudentHomePage()
        Lost and Found
       </ListGroupItem>
      
-
-
       <ListGroupItem
         action
         href="/findRooms"
@@ -85,9 +71,7 @@ function StudentHomePage()
       >
         Find Rooms
       </ListGroupItem>
-
-
-     
+ 
     </ListGroup>
     <p />
   

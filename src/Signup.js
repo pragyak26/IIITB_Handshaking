@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import { Card,CardBody } from "reactstrap";
 import { Form ,FormGroup,Label,Input,Button,FormText} from "reactstrap";
 import { Row,Col } from "reactstrap";
+import base_url from "./api/bootapi";
+import axios from "axios";
+import Login from "./Login";
+import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
+import { ListGroupItem } from "reactstrap";
+
 
 function Signup(){
+  useEffect(()=>{
+      document.title="Signup||IIITB"
+  },[]);
+
+  //function to call server
+  const [userdata,setuser]=useState({});
+  //form handler function
+  const handleform=(e)=>{
+    console.log(userdata);
+    // <BrowserRouter>
+    // <Routes>
+   
+    // <Route path="/login" element={<Login />} />
+    // </Routes>
+    // </BrowserRouter>
+    e.preventDefault();
+  };
     return (
         <div>
              <Container className="text-center my-3"/>
@@ -16,7 +39,9 @@ function Signup(){
         </CardBody>
       </Card>
             <Container/>
-            <Form>
+
+
+   <Form onSubmit={handleform} >
   
   <FormGroup>
     <Label for="exampleEmail">
@@ -27,6 +52,9 @@ function Signup(){
       name="email"
       placeholder="with a placeholder"
       type="email"
+      onChange={(e)=>{
+        setuser({...userdata,email: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
@@ -38,6 +66,9 @@ function Signup(){
       name="password"
       placeholder="password placeholder"
       type="password"
+      onChange={(e)=>{
+        setuser({...userdata,password: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
@@ -48,18 +79,24 @@ function Signup(){
       id="exampleUrl"
       name="url"
       placeholder="url placeholder"
-      type="url"
+      type="number"
+      onChange={(e)=>{
+        setuser({...userdata,rollNo: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
     <Label for="exampleNumber">
-      Number
+      Username
     </Label>
     <Input
       id="exampleNumber"
       name="number"
       placeholder="number placeholder"
-      type="number"
+      type="username"
+      onChange={(e)=>{
+        setuser({...userdata,username: e.target.value})
+      }}
     />
   </FormGroup>
  
@@ -75,6 +112,9 @@ function Signup(){
       id="exampleSelect"
       name="select"
       type="select"
+      onChange={(e)=>{
+        setuser({...userdata,role: e.target.value})
+      }}
     >
       <option>
         Student
@@ -96,9 +136,28 @@ function Signup(){
     </Label>
   </FormGroup>
 
-  <Button>
+  <Button type="submit">
     Submit
   </Button>
+
+
+{/* <BrowserRouter>
+<Routes>
+<Route path="/login" element={<Login />} />
+</Routes>
+</BrowserRouter> */}
+
+{/* <Container className="text-center">
+<ListGroupItem
+        action 
+        type="submit"
+        className="btn btn-primary" size="lg"
+        href="/login"
+        tag="a" style={{backgroundColor: "pink"}}
+      >
+      Submit
+</ListGroupItem>
+</Container> */}
 </Form>
         </div>
     )

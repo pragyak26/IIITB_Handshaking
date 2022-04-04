@@ -10,7 +10,7 @@ import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
-    {/* < Login /> */}
+    < Login />
     
 
     <BrowserRouter>

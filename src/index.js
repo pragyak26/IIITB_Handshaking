@@ -13,12 +13,12 @@ ReactDOM.render(
     < Login />
     
 
-    <BrowserRouter>
+    {/* <BrowserRouter>
 <Routes>
 <Route path="" element={<Signup />} />
 <Route path="/login" element={<Login />} />
 </Routes>
-</BrowserRouter>
+</BrowserRouter> */}
 
   </React.StrictMode>,
   document.getElementById('root')

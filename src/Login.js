@@ -3,7 +3,41 @@ import { Container } from "reactstrap";
 import { Card,CardBody } from "reactstrap";
 import { Form ,FormGroup,Label,Input,Button,FormText} from "reactstrap";
 import { Row,Col } from "reactstrap";
+import axios from "axios";
+import  { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom'
+
+// function NavigationDemo() {
+//   const history = useHistory();
+//   const navigateTo = () => history.push('/Signup');
+// };
+
 function Login(){
+
+  //function to call server
+  const [userdata,setuser]=useState({});
+
+
+  //form handler function
+  const handleform_login=(e)=>{
+    console.log(userdata);
+    postdatatoserver(userdata);
+    e.preventDefault();
+  };
+  //creating fun to post data on server
+  const postdatatoserver=(data)=>{
+    axios.post('${base_url}/addUser' ,data).then(
+      (response)=>{
+          console.log(response);
+          console.log("success");
+      },
+      (error)=>{
+          console.log(error);
+          console.log("error");
+      }
+    )
+};
     return (<div>
     
     
@@ -15,20 +49,26 @@ function Login(){
         </p>
         </CardBody>
       </Card>
+
       <Card>
         <CardBody>
         <Row>
       <Col md={4}>
-      <Form>
+
+
+      <Form onSubmit={handleform_login}>
   <FormGroup>
     <Label for="exampleEmail">
-      Email
+      User Name
     </Label>
     <Input
-      id="exampleEmail"
-      name="email"
+      id="username"
+      name="username"
       placeholder="with a placeholder"
-      type="email"
+      type="text"
+      onChange={(e)=>{
+        setuser({...userdata,username: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
@@ -40,6 +80,9 @@ function Login(){
       name="password"
       placeholder="password placeholder"
       type="password"
+      onChange={(e)=>{
+        setuser({...userdata,password: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
@@ -51,6 +94,9 @@ function Login(){
       name="select"
       type="select"
     >
+      onChange={(e)=>{
+        setuser({...userdata,role: e.target.value})
+      }}
       <option>
         Student
       </option>
@@ -62,6 +108,7 @@ function Login(){
       </option>
       
     </Input>
+    
   </FormGroup>
   
   
@@ -79,19 +126,24 @@ function Login(){
     Submit
   </Button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <Button>
+  <Button onClick={()=> window.location.href='/src/Signup' }>
     Sign Up
   </Button>
+
+  {/* <Link to="/Signup" className="btn btn-primary">Sign up1</Link> */}
 </Form>
       </Col>
     </Row>
 
+    
+
         </CardBody>
       </Card>
     
-      
+     
 
     </div>)
     };
     
     export default Login;
+   // export NavigationDemo;

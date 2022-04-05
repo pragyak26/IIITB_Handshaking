@@ -12,11 +12,12 @@ import StudentHomePage from './StudentHomePage';
 import Header from './Header';
 
 
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    < Login />
-    <Header/>
+    <App />
+    {/* < Login /> */}
+   
     {/* <Signup /> */}
     {/* <AlumniHomePage/> */}
     {/* <StudentHomePage/> */}

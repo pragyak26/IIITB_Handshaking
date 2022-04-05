@@ -12,6 +12,9 @@ import { Container, Row ,Col} from 'reactstrap';
 import Lostandfound from './Lostandfound';
 import { Card,CardBody } from 'reactstrap';
 import Home from './Home';
+import Login from './Login';
+import Signup from './Signup';
+import Header from './Header';
 
 function App() {
   return (
@@ -31,20 +34,20 @@ function App() {
       
         <Row>
         <Col md={3}>
-          <StudentHomePage/>
+          {/* <StudentHomePage/> */}
+
           </Col>
          
     
           <Col md={9}>
        
-          {/* <Routes>
-  <Route path="/home" element={<Home />} />
-  <Route path="/donate" element={<Donate />} />
-  <Route path="/findRooms" element={<FindRooms />} />
-  <Route path="/sell" element={<Sell />} />
-  <Route path="/lostandfound" element={<Lostandfound />} />
+          <Routes>
+          <Route path="/header" element={<Header />} />
+  <Route path="/" element={<Login />} />
+  <Route path="/signup" element={<Signup />} />
  
-  </Routes> */}
+ 
+  </Routes>
      
   </Col>
      

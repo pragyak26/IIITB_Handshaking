@@ -12,7 +12,7 @@ import Signup from "./Signup";
 import { ListGroupItem } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import Home from "./Home";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 
 // function NavigationDemo() {
 //   const history = useHistory();
@@ -138,42 +138,24 @@ const postdatatoserver=(data)=>{
       You are not a robot
     </Label>
   </FormGroup>
-  <Button>
+<Row>
+<Col>
+<Button>
     Submit
-    <ArrowForwardIosIcon />
+  
   </Button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <Button onClick={event =>  window.location.href='Home'}>
-    Sign Up
-  </Button>
-  {/* {window.location.href ="localhost:3000/Signup"} */}
-  {/* <Link to="/Signup" className="btn btn-primary">Sign up1</Link> */}
+<a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Switch to Exercise</a>
+{/* backgroundColor:'#15983e',color:"white",width:"30vw" */}
+
+</Col>
+
+</Row>
+  
+ 
+
 </Form>
 
-{/* //////////
- <ListGroup>
-
-
- <ListGroupItem
-        action
-        href="/signup"
-        tag="a" style={{backgroundColor: "pink"}}
-      >
-        Sign Up
-      </ListGroupItem>
- </ListGroup>
-
-<BrowserRouter>
-
-<Routes>
-  <Route path="/signup" element={<Signup />} />
- 
- 
-  </Routes>
-
-  
-</BrowserRouter>
-////// */}
 
 
       </Col>

@@ -7,10 +7,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Login'
 import Signup from './Signup'
 import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
+import AlumniHomePage from './AlumniHomePage';
+import StudentHomePage from './StudentHomePage';
+import Header from './Header';
+
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     < Login />
+    <Header/>
+    {/* <Signup /> */}
+    {/* <AlumniHomePage/> */}
+    {/* <StudentHomePage/> */}
     
 
     {/* <BrowserRouter>

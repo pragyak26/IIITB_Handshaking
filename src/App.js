@@ -37,14 +37,14 @@ function App() {
     
           <Col md={9}>
        
-          <Routes>
+          {/* <Routes>
   <Route path="/home" element={<Home />} />
   <Route path="/donate" element={<Donate />} />
   <Route path="/findRooms" element={<FindRooms />} />
   <Route path="/sell" element={<Sell />} />
   <Route path="/lostandfound" element={<Lostandfound />} />
  
-  </Routes>
+  </Routes> */}
      
   </Col>
      

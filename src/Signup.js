@@ -4,6 +4,7 @@ import { Card,CardBody } from "reactstrap";
 import { Form ,FormGroup,Label,Input,Button,FormText} from "reactstrap";
 import { Row,Col } from "reactstrap";
 
+
 import axios from "axios";
 import Login from "./Login";
 import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
@@ -23,19 +24,14 @@ function Signup(){
   const handleform=(e)=>{
     console.log(userdata);
     postdatatoserver(userdata);
-    // <BrowserRouter>
-    // <Routes>
-// document.location.href="http://9001/Login"
-    // <Route path="/login" element={<Login />} />
-    // </Routes>
-    // </BrowserRouter>
+    
   
     e.preventDefault();
   };
 
   //creating fun to post data on server
   const postdatatoserver=(data)=>{
-      axios.post('${base_url}/addUser' ,data).then(
+      axios.post('http://8073-119-161-98-68.ngrok.io/addUser' ,data).then(
         (response)=>{
             console.log(response);
             console.log("success");
@@ -156,7 +152,7 @@ function Signup(){
     </Label>
   </FormGroup>
 
-  <Button type="submit">
+  <Button type="submit" >
     Submit
   </Button>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "reactstrap";
+import { Container, ListGroup } from "reactstrap";
 import { Card,CardBody } from "reactstrap";
 import { Form ,FormGroup,Label,Input,Button,FormText} from "reactstrap";
 import { Row,Col } from "reactstrap";
@@ -7,37 +7,53 @@ import axios from "axios";
 import  { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom'
+import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
+import Signup from "./Signup";
+import { ListGroupItem } from "reactstrap";
+import { useNavigate } from "react-router-dom";
+import Home from "./Home";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 // function NavigationDemo() {
 //   const history = useHistory();
 //   const navigateTo = () => history.push('/Signup');
 // };
 
+
 function Login(){
+  useEffect(()=>{
+      document.title="Login||IIITB"
+  },[]);
+//function to call server
+const [userdata,setuser]=useState({});
+//form handler function
 
-  //function to call server
-  const [userdata,setuser]=useState({});
-
-
-  //form handler function
-  const handleform_login=(e)=>{
-    console.log(userdata);
-    postdatatoserver(userdata);
-    e.preventDefault();
-  };
-  //creating fun to post data on server
-  const postdatatoserver=(data)=>{
-    axios.post('${base_url}/addUser' ,data).then(
-      (response)=>{
-          console.log(response);
-          console.log("success");
-      },
-      (error)=>{
-          console.log(error);
-          console.log("error");
-      }
-    )
+const handleform_login=(e)=>{
+  console.log(userdata);
+  postdatatoserver(userdata);
+  e.preventDefault();
 };
+//creating fun to post data on server
+const postdatatoserver=(data)=>{
+  axios.post('${base_url}/addUser' ,data).then(
+    (response)=>{
+        console.log(response);
+        console.log("success");
+    },
+    (error)=>{
+        console.log(error);
+        console.log("error");
+    }
+  )
+};
+
+
+// let navigate = useNavigate(); 
+//   const routeChange = () =>{ 
+//     let path = `/Signup`; 
+//     navigate(path);
+//   };
+
     return (<div>
     
     
@@ -124,14 +140,42 @@ function Login(){
   </FormGroup>
   <Button>
     Submit
+    <ArrowForwardIosIcon />
   </Button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <Button onClick={()=> window.location.href='/src/Signup' }>
+  <Button onClick={event =>  window.location.href='Home'}>
     Sign Up
   </Button>
-
+  {/* {window.location.href ="localhost:3000/Signup"} */}
   {/* <Link to="/Signup" className="btn btn-primary">Sign up1</Link> */}
 </Form>
+
+{/* //////////
+ <ListGroup>
+
+
+ <ListGroupItem
+        action
+        href="/signup"
+        tag="a" style={{backgroundColor: "pink"}}
+      >
+        Sign Up
+      </ListGroupItem>
+ </ListGroup>
+
+<BrowserRouter>
+
+<Routes>
+  <Route path="/signup" element={<Signup />} />
+ 
+ 
+  </Routes>
+
+  
+</BrowserRouter>
+////// */}
+
+
       </Col>
     </Row>
 

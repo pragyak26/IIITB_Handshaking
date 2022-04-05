@@ -117,9 +117,6 @@ function Signup(){
   </FormGroup>
  
  
-  
- 
- 
   <FormGroup>
     <Label for="exampleSelect">
       Select
@@ -155,25 +152,9 @@ function Signup(){
   <Button type="submit" >
     Submit
   </Button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="/login" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Login</a>
 
-
-{/* <BrowserRouter>
-<Routes>
-<Route path="/login" element={<Login />} />
-</Routes>
-</BrowserRouter> */}
-
-{/* <Container className="text-center">
-<ListGroupItem
-        action 
-        type="submit"
-        className="btn btn-primary" size="lg"
-        href="/login"
-        tag="a" style={{backgroundColor: "pink"}}
-      >
-      Submit
-</ListGroupItem>
-</Container> */}
 </Form>
         </div>
     )

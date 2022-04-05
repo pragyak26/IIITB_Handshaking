@@ -42,10 +42,10 @@ function App() {
           <Col md={9}>
        
           <Routes>
-          <Route path="/header" element={<Header />} />
-  <Route path="/" element={<Login />} />
+  <Route path="/header" element={<Header />} />
+  <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup />} />
- 
+  <Route path="/home" element={<Home />} />
  
   </Routes>
      

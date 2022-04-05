@@ -10,7 +10,7 @@ return (<div>
   <Card>
     <CardBody >
     <p className="text-center my-3">
-      IIITB-Handshaking is a plateform which helps all the students in campus of IIITB to connect and react to each other. {' '}
+      IIITB-Handshaking is a platform which helps all the students in campus of IIITB to connect and react to each other. {' '}
     </p>
     </CardBody>
   </Card>

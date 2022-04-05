@@ -17,13 +17,13 @@ function StudentHomePage()
 <Container/>
 
 <Row>
-  <Card>
+  {/* <Card>
     <CardBody className='bg-warning'>
     <h3 className="text-center my-3">
       Student Page{' '}
     </h3>
     </CardBody>
-  </Card>
+  </Card> */}
     
 
     {/* menu */}
@@ -87,15 +87,7 @@ function StudentHomePage()
       </Col>
    
     
-   
-  
-{/*     
-    <Input/>
-    <Button
-     color="primary"
-     >
-       Click Me
-    </Button> */}
+
      
 <BrowserRouter>
 <Col md={9}>

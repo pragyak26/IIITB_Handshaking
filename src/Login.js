@@ -12,12 +12,8 @@ import Signup from "./Signup";
 import { ListGroupItem } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import Home from "./Home";
+import StudentHomePage from "./StudentHomePage";
 
-
-// function NavigationDemo() {
-//   const history = useHistory();
-//   const navigateTo = () => history.push('/Signup');
-// };
 
 
 function Login(){
@@ -48,11 +44,6 @@ const postdatatoserver=(data)=>{
 };
 
 
-// let navigate = useNavigate(); 
-//   const routeChange = () =>{ 
-//     let path = `/Signup`; 
-//     navigate(path);
-//   };
 
     return (<div>
     
@@ -144,8 +135,9 @@ const postdatatoserver=(data)=>{
     Submit
   
   </Button>
+  <a href="/home" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Sgdfgdg</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Switch to Exercise</a>
+<a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Signup</a>
 {/* backgroundColor:'#15983e',color:"white",width:"30vw" */}
 
 </Col>

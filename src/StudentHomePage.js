@@ -2,14 +2,11 @@ import React from 'react';
 import {Card, CardBody, Input, ListGroup,ListGroupItem} from 'reactstrap';
 import { Button } from 'reactstrap';
 
-  import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
-  import Donate from './Donate';
-  import FindRooms from './FindRooms';
-  import Sell from './Sell';
+
   import { Container, Row ,Col} from 'reactstrap';
-  import Lostandfound from './Lostandfound';
+
 import './StudentHomePage.css';
-  import Home from './Home';
+  
 
 
 function StudentHomePage()
@@ -17,13 +14,13 @@ function StudentHomePage()
 <Container/>
 
 <Row>
-  {/* <Card>
+  <Card>
     <CardBody className='bg-warning'>
     <h3 className="text-center my-3">
       Student Page{' '}
     </h3>
     </CardBody>
-  </Card> */}
+  </Card>
     
 
     {/* menu */}
@@ -89,7 +86,7 @@ function StudentHomePage()
     
 
      
-<BrowserRouter>
+{/* <BrowserRouter>
 <Col md={9}>
 <Routes>
   <Route path="/home" element={<Home />} />
@@ -101,7 +98,7 @@ function StudentHomePage()
   </Routes>
   </Col>
   
-</BrowserRouter>
+</BrowserRouter> */}
 </Row>
 
 

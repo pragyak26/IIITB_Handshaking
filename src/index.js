@@ -4,24 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './Login'
-import Signup from './Signup'
-import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
-import AlumniHomePage from './AlumniHomePage';
-import StudentHomePage from './StudentHomePage';
-import Header from './Header';
+import FindRooms from './FindRooms';
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
    
    
     {/* <Signup /> */}
     {/* <AlumniHomePage/> */}
     {/* <StudentHomePage/> */}
-    
+    <FindRooms />
 
     {/* <BrowserRouter>
 <Routes>

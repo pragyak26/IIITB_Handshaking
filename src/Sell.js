@@ -1,11 +1,15 @@
 import React from 'react';
 
 
-import { Container, Form, Input } from 'reactstrap';
+import { Container, Form, Input, Row } from 'reactstrap';
 import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
 import { Card,CardBody } from 'reactstrap';
 import { Button } from 'reactstrap';
+import StudentHomePage from './StudentHomePage';
+import { Col } from 'reactstrap';
+
+
 function Sell(){
 return(<div>
   <Container/>
@@ -16,8 +20,12 @@ return(<div>
     </h8>
     </CardBody>
   </Card>
+<Row>
+ <Col> <StudentHomePage /></Col>
+ 
+  
 
-
+<Col>
     <Form>
   <FormGroup>
     <Label for="exampleEmail">
@@ -84,6 +92,8 @@ return(<div>
     Submit
   </Button>
 </Form>
+</Col>
+</Row>
 </div>)
 };
 

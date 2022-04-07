@@ -46,6 +46,12 @@ function App() {
   <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup />} />
   <Route path="/home" element={<Home />} />
+  <Route path="/studenthomepage" element={<StudentHomePage />} />
+  <Route path="/home" element={<Home />} />
+  <Route path="/donate" element={<Donate />} />
+  <Route path="/findRooms" element={<FindRooms />} />
+  <Route path="/sell" element={<Sell />} />
+  <Route path="/lostandfound" element={<Lostandfound />} />
  
   </Routes>
      

@@ -28,6 +28,7 @@ const handleform_login=(e)=>{
   console.log(userdata);
   postdatatoserver(userdata);
   e.preventDefault();
+  <a href="/studenthomepage" ></a>
 };
 //creating fun to post data on server
 const postdatatoserver=(data)=>{
@@ -65,14 +66,15 @@ const postdatatoserver=(data)=>{
 
       <Form onSubmit={handleform_login}>
   <FormGroup>
-    <Label for="exampleEmail">
+    <Label for="username">
       User Name
     </Label>
     <Input
       id="username"
       name="username"
-      placeholder="with a placeholder"
+      placeholder="Type your Name"
       type="text"
+      autoComplete="off"
       onChange={(e)=>{
         setuser({...userdata,username: e.target.value})
       }}
@@ -85,7 +87,7 @@ const postdatatoserver=(data)=>{
     <Input
       id="examplePassword"
       name="password"
-      placeholder="password placeholder"
+      placeholder="Type your Password"
       type="password"
       onChange={(e)=>{
         setuser({...userdata,password: e.target.value})
@@ -104,6 +106,7 @@ const postdatatoserver=(data)=>{
       onChange={(e)=>{
         setuser({...userdata,role: e.target.value})
       }}
+      <option value="N/A">Select</option>
       <option>
         Student
       </option>
@@ -131,11 +134,11 @@ const postdatatoserver=(data)=>{
   </FormGroup>
 <Row>
 <Col>
-<Button>
-    Submit
+<Button >
+    Submit12e
   
   </Button>
-  <a href="/home" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Sgdfgdg</a>
+  <a href="/studenthomepage" className="btn btn-success" type="submit" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Sgdfgdg</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Signup</a>
 {/* backgroundColor:'#15983e',color:"white",width:"30vw" */}

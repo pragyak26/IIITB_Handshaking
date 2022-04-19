@@ -17,6 +17,8 @@ import StudentHomePage from "./StudentHomePage";
 
 
 function Login(){
+
+
   useEffect(()=>{
       document.title="Login||IIITB"
   },[]);
@@ -28,7 +30,10 @@ const handleform_login=(e)=>{
   console.log(userdata);
   postdatatoserver(userdata);
   e.preventDefault();
-  <a href="/studenthomepage" ></a>
+
+
+
+  
 };
 //creating fun to post data on server
 const postdatatoserver=(data)=>{
@@ -36,6 +41,22 @@ const postdatatoserver=(data)=>{
     (response)=>{
         console.log(response);
         console.log("success");
+
+
+
+        let res =  response.data;
+
+        if(res.role === "Student")
+        
+        {
+    
+        window.location.href = 'https://leetcode.com/explore/'  ;
+        
+        }
+
+
+
+
         if(response=="200"){
           
         }
@@ -102,7 +123,7 @@ const postdatatoserver=(data)=>{
       Select
     </Label>
     <Input
-      id="exampleSelect"
+      id="select"
       name="select"
       type="select"
     >
@@ -141,7 +162,7 @@ const postdatatoserver=(data)=>{
     Submit12e
   
   </Button>
-  <a href="/studenthomepage" className="btn btn-success" type="submit" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Sgdfgdg</a>
+  {/* <a href="/studenthomepage" className="btn btn-success" type="submit" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Sgdfgdg</a> */}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Signup</a>
 {/* backgroundColor:'#15983e',color:"white",width:"30vw" */}
@@ -154,12 +175,9 @@ const postdatatoserver=(data)=>{
 
 </Form>
 
-
-
       </Col>
     </Row>
 
-    
 
         </CardBody>
       </Card>
@@ -170,4 +188,5 @@ const postdatatoserver=(data)=>{
     };
     
     export default Login;
-   // export NavigationDemo;
+
+    

@@ -20,7 +20,7 @@ function FindRooms(){
      ]);
     //function to get available rooms from server
     const getAllRoomsFromServer=()=>{
-            axios.get('http://c726-103-156-19-229.ngrok.io/getRooms').then(
+            axios.get(`${base_url}/getRooms`).then(
                 (response)=>{
                         console.log(response);
                         toast.success("rooms");

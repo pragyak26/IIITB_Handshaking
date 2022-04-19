@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FindRooms from './FindRooms';
+import Donate from './Donate';
+import GeeksforGeeks from './Gfg';
+
 
 
 
@@ -12,8 +15,9 @@ import FindRooms from './FindRooms';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-   
+    {/* <App /> */}
+   <Donate/>
+   {/* <GeeksforGeeks/> */}
    {/* <Login /> */}
     {/* <Signup /> */}
     {/* <AlumniHomePage/> */}

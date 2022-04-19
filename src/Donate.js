@@ -6,17 +6,29 @@ import {Card,CardBody} from 'reactstrap';
 import { Button } from 'reactstrap';
 import { useState } from 'react';
 import axios from "axios";
+import base_url from './api/bootapi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function notify(){ 
+  toast("Product added succesfully!");
+}
 function Donate(){
 
+  
   const [userdata,setuser]=useState({});
   const handleform_donate=(e)=>{
-    console.log(userdata);
+  
     postdatatoserver(userdata);
     e.preventDefault();
+    notify();
+   
+  
   };
   //creating fun to post data on server
   const postdatatoserver=(data)=>{
-    axios.post('${base_url}/.......' ,data).then(
+    console.log(userdata)
+    axios.post(`${base_url}/donate/addItem` ,data).then(
       (response)=>{
           console.log(response);
           console.log("success");

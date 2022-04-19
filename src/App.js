@@ -33,9 +33,9 @@ function App() {
       <BrowserRouter>
       
         <Row>
-        <Col md={3}>
-          <StudentHomePage/>
-            {/* <Login /> */}
+        <Col md={6}>
+          {/* <StudentHomePage/> */}
+            <Login />
           </Col>
          
     

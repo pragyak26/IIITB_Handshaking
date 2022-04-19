@@ -4,7 +4,31 @@ import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
 import {Card,CardBody} from 'reactstrap';
 import { Button } from 'reactstrap';
+import { useState } from 'react';
+import axios from "axios";
 function Donate(){
+
+  const [userdata,setuser]=useState({});
+  const handleform_donate=(e)=>{
+    console.log(userdata);
+    postdatatoserver(userdata);
+    e.preventDefault();
+  };
+  //creating fun to post data on server
+  const postdatatoserver=(data)=>{
+    axios.post('${base_url}/.......' ,data).then(
+      (response)=>{
+          console.log(response);
+          console.log("success");
+      },
+      (error)=>{
+          console.log(error);
+          console.log("error");
+      }
+    )
+  };
+
+
 return(<div>
   <Container/>
   <Card>
@@ -19,44 +43,39 @@ return(<div>
 <Card>
   <CardBody>
 
-  <Form>
-  <FormGroup>
-    <Label for="exampleEmail">
-     Product Name
-    </Label>
-    <Input
-      id="exampleEmail"
-      name="email"
-      placeholder="with a placeholder"
-      type="email"
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="examplePassword">
-      Details
-    </Label>
-    <Input
-      id="examplePassword"
-      name="password"
-      placeholder="Condition of product"
-      type="text"
-    />
-  </FormGroup>
+  <Form onSubmit={handleform_donate}>
   <FormGroup>
     
-
-  </FormGroup>
-
-  <FormGroup>
-    <Label for="exampleText">
-      Image
-    </Label>
+     Product Name
+    
     <Input
-      id="exampleText"
-      name="text"
-      type="textarea"
+      id="product"
+      name="product"
+      placeholder="Enter product name"
+      type="text"
+      onChange={(e)=>{
+        setuser({...userdata,productname: e.target.value})
+      }}
     />
   </FormGroup>
+  <FormGroup>
+   
+      Details
+   
+    <Input
+      id="detail"
+      name="detail"
+      placeholder="Condition of product"
+      type="text"
+      onChange={(e)=>{
+        setuser({...userdata,details: e.target.value})
+      }}
+    />
+  </FormGroup>
+ 
+    
+
+ 
   <FormGroup>
     <Label for="exampleFile">
       File
@@ -65,6 +84,9 @@ return(<div>
       id="exampleFile"
       name="file"
       type="file"
+      onChange={(e)=>{
+        setuser({...userdata,image: e.target.value})
+      }}
     />
    
  

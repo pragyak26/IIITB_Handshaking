@@ -9,22 +9,18 @@ import FindRooms from './FindRooms';
 
 
 
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
+    <App />
    
-   
+   {/* <Login /> */}
     {/* <Signup /> */}
     {/* <AlumniHomePage/> */}
     {/* <StudentHomePage/> */}
-    <FindRooms />
+    {/* <FindRooms /> */}
 
-    {/* <BrowserRouter>
-<Routes>
-<Route path="" element={<Signup />} />
-<Route path="/login" element={<Login />} />
-</Routes>
-</BrowserRouter> */}
+   
 
   </React.StrictMode>,
   document.getElementById('root')

@@ -13,19 +13,19 @@ function StudentHomePage()
 {return (<div>
 <Container/>
 
-<Row>
-  <Card>
+{/* <Row> */}
+  {/* <Card>
     <CardBody className='bg-warning'>
     <h3 className="text-center my-3">
       Student Page{' '}
     </h3>
     </CardBody>
-  </Card>
+  </Card> */}
     
 
     {/* menu */}
     
-      <Col md={3}>
+      {/* <Col md={3}> */}
 
       <ListGroup >
     <ListGroupItem
@@ -81,25 +81,13 @@ function StudentHomePage()
 
 
 
-      </Col>
+      {/* </Col> */}
    
     
 
      
-{/* <BrowserRouter>
-<Col md={9}>
-<Routes>
-  <Route path="/home" element={<Home />} />
-  <Route path="/donate" element={<Donate />} />
-  <Route path="/findRooms" element={<FindRooms />} />
-  <Route path="/sell" element={<Sell />} />
-  <Route path="/lostandfound" element={<Lostandfound />} />
- 
-  </Routes>
-  </Col>
-  
-</BrowserRouter> */}
-</Row>
+
+{/* </Row> */}
 
 
 

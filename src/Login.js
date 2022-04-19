@@ -36,6 +36,9 @@ const postdatatoserver=(data)=>{
     (response)=>{
         console.log(response);
         console.log("success");
+        if(response=="200"){
+          
+        }
     },
     (error)=>{
         console.log(error);

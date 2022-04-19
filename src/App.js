@@ -34,8 +34,8 @@ function App() {
       
         <Row>
         <Col md={3}>
-          {/* <StudentHomePage/> */}
-
+          <StudentHomePage/>
+            {/* <Login /> */}
           </Col>
          
     
@@ -58,9 +58,7 @@ function App() {
   </Col>
      
      
-      {/* <Col md={8}>
-   
-      </Col> */}
+    
         </Row>
    
        

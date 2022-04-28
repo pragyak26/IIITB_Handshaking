@@ -5,28 +5,28 @@ import base_url from './api/bootapi';
 import { toast } from 'react-toastify';
 import { Col,Row } from 'reactstrap';
 import StudentHomePage from './StudentHomePage';
-import Room from './Room';
-function FindRooms(){
+import Buyproduct from './Buyproduct';
+function Buy(){
 
 
      useEffect(()=>{
-         document.title="find rooms";
+         document.title="Products";
      },[])
      useEffect(()=>{
-            getAllRoomsFromServer();
+            getAllProductFromServer();
      },[])
 
      
-     const [rooms,setroomsDetails]=useState([
+     const [product1,setproductsDetails]=useState([
 
      ]);
     //function to get available rooms from server
-    const getAllRoomsFromServer=()=>{
-            axios.get(`${base_url}/getRooms`).then(
+    const getAllProductFromServer=()=>{
+            axios.get(`${base_url}/getSellProducts`).then(
                 (response)=>{
                         console.log(response);
-                        toast.success("rooms");
-                        setroomsDetails(response.data);
+                        toast.success("Products");
+                        setproductsDetails(response.data);
                       
                 },
                 (error)=>{
@@ -39,15 +39,19 @@ function FindRooms(){
 
 
 <Col > <StudentHomePage /></Col>
-<Col><h5>Available Room</h5></Col>
-<img src="/iiitb_logo.jpg" className="img" style={{height: 40, width: 40}}/>
-<Col >
+<Col><h3 className='center'>Available Products</h3></Col>
+<Col>
 
       
                 {
-                        rooms.length>0
-                        ? rooms.map((item)=><Room room={item} />)
-                        :"No rooms"}
+                        product1.length>0
+                        ? product1.map((item)=><Buyproduct product1={item} />)
+                        :"No products"
+                        
+                        
+                        
+                        }
+                  
 
 </Col>
 
@@ -56,4 +60,4 @@ function FindRooms(){
     )
         };
 
-export default FindRooms;
+export default Buy;

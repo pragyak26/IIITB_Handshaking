@@ -1,12 +1,18 @@
 import React from "react";
 import { Container } from "reactstrap";
 import { Card,CardBody } from "reactstrap";
+import { Row,Col } from 'reactstrap';
+import StudentHomePage from './StudentHomePage';
 
 function Home(){
 return (<div>
 
 
     <Container/>
+  
+
+  <Col> <StudentHomePage /></Col>
+  <Col>
   <Card>
     <CardBody >
     <p className="text-center my-3">
@@ -14,6 +20,8 @@ return (<div>
     </p>
     </CardBody>
   </Card>
+  </Col>
+
 
 </div>)
 };

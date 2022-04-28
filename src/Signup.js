@@ -31,7 +31,7 @@ function Signup(){
 
   //creating fun to post data on server
   const postdatatoserver=(data)=>{
-      axios.post('http://8073-119-161-98-68.ngrok.io/addUser' ,data).then(
+      axios.post(`${base_url}/addUser` ,data).then(
         (response)=>{
             console.log(response);
             console.log("success");
@@ -129,13 +129,14 @@ function Signup(){
         setuser({...userdata,role: e.target.value})
       }}
     >
-      <option>
+      <option value="N/A">Select</option>
+      <option value="STUDENT">
         Student
       </option>
-      <option>
+      <option value="ALUMNI">
         Alumni
       </option>
-      <option>
+      <option value="ADMIN">
         Admin
       </option>
       

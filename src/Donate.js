@@ -1,22 +1,27 @@
 import React from 'react';
-import { Container, Form, Input } from 'reactstrap';
+import { Container, Form, Input, Row } from 'reactstrap';
 import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
 import {Card,CardBody} from 'reactstrap';
-import { Button } from 'reactstrap';
+
 import { useState } from 'react';
 import axios from "axios";
 import base_url from './api/bootapi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Col } from 'reactstrap';
+import StudentHomePage from './StudentHomePage';
+import Button from '@mui/material/Button';
 function notify(){ 
   toast("Product added succesfully!");
 }
 function Donate(){
 
-  
+  const [file,setfile]=useState({});
+  const [donateId,setdonateId]=useState({});
   const [userdata,setuser]=useState({});
+
+  
   const handleform_donate=(e)=>{
   
     postdatatoserver(userdata);
@@ -25,36 +30,53 @@ function Donate(){
    
   
   };
-  //creating fun to post data on server
-  const postdatatoserver=(data)=>{
+
+  const  postdatatoserver= async (data)=>{
     console.log(userdata)
-    axios.post(`${base_url}/donate/addItem` ,data).then(
+    await axios.post(`${base_url}/donate/addItem` ,data).then(
       (response)=>{
           console.log(response);
           console.log("success");
+          setdonateId({...donateId,id:response.data.donateId});
+          console.log(donateId.id);
       },
       (error)=>{
           console.log(error);
           console.log("error");
       }
     )
+    const data1 = new FormData();
+    data1.append('file',file.selectedFile);
+    console.warn(file.selectedFile);
+    axios.post(`${base_url}/upload-file/d_`+donateId.id , data1,{})
+    .then(res => {
+      console.warn(res);
+    })
   };
 
 
 return(<div>
   <Container/>
-  <Card>
-    <CardBody>
-    <h8 style={{color: "Blue"}}  >
-      Fill the details of item you want to donate{' '}
-    </h8>
-    </CardBody>
-  </Card>
+ 
     
   
 <Card>
   <CardBody>
 
+
+
+  <Col > <StudentHomePage /></Col>
+  <Col>
+  
+  <Card className="text-center">
+    <CardBody >
+    <h8 style={{color: "Blue"} }  >
+      Fill the details of item you want to donate{' '}
+    </h8>
+    </CardBody>
+  </Card>
+  </Col>
+  <Col>
   <Form onSubmit={handleform_donate}>
   <FormGroup>
     
@@ -97,16 +119,16 @@ return(<div>
       name="file"
       type="file"
       onChange={(e)=>{
-        setuser({...userdata,image: e.target.value})
+        // setuser({...userdata,image: e.target.value});
+        setfile({...file, selectedFile: e.target.files[0],});
       }}
     />
    
  
   </FormGroup> 
-  <Button>
-    Submit
-  </Button>
+  <Button variant="contained" size="medium" onClick={handleform_donate}>  Submit</Button>
 </Form>
+</Col>
 
   </CardBody>
 </Card>

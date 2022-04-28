@@ -1,97 +1,58 @@
+import { color } from '@mui/system';
 import React from 'react';
 import {Card, CardBody, Input, ListGroup,ListGroupItem} from 'reactstrap';
 import { Button } from 'reactstrap';
-
-
-  import { Container, Row ,Col} from 'reactstrap';
-
+import { Container, Row ,Col} from 'reactstrap';
 import './StudentHomePage.css';
-  
+  import { Navbar,NavbarBrand } from 'reactstrap';
+import { Height } from '@material-ui/icons';
 
 
 function StudentHomePage()
 {return (<div>
+
+
+
+
+
 <Container/>
 
-{/* <Row> */}
-  {/* <Card>
-    <CardBody className='bg-warning'>
-    <h3 className="text-center my-3">
-      Student Page{' '}
-    </h3>
-    </CardBody>
-  </Card> */}
+  <Navbar bg="primary" variant="dark" style={{backgroundColor: "#232F3E"} }>
     
-
-    {/* menu */}
-    
-      {/* <Col md={3}> */}
-
-      <ListGroup >
-    <ListGroupItem
-        action
-        href="/home" style={{backgroundColor: "pink"}}
-        tag="a"
-      >
-          Home
-      </ListGroupItem>
-
-    <ListGroupItem
-        action
-        href="/donate"
-        tag="a" style={{color: "Blue"}} style={{backgroundColor: "pink"}}
-      >
-          Donate
-      </ListGroupItem>
+  <img src="/iiitb_logo.jpg" className="img" style={{weight: 40 ,height:40}}/>
  
+    <NavbarBrand href="/home" style={{color:"white"}} >
+      Home
+    </NavbarBrand>
+
+
+
+<NavbarBrand href="/donate" style={{color:"white"}}>
+      Donate
+    </NavbarBrand>
+
+
+    <NavbarBrand href="/buy" style={{color:"white"}}>
+     Buy
+    </NavbarBrand>
+
+    <NavbarBrand href="/sell" style={{color:"white"}}>
+  Sell
+    </NavbarBrand>
+
+    <NavbarBrand href="/lostandfound" style={{color:"white"}}>
+     Lost & Found
+    </NavbarBrand>
+
+    <NavbarBrand href="/findRooms" style={{color:"white"}}>
+      Find Rooms
+    </NavbarBrand>
  
-      <ListGroupItem
-        action
-        href="/sell"
-        tag="a" style={{backgroundColor: "pink"}}
-      >
-        Sell
-      </ListGroupItem>
+    </Navbar>
 
-      <ListGroupItem
-        action
-        href="/buy"
-        tag="a" style={{backgroundColor: "pink"}}
-      >
-        Buy
-      </ListGroupItem>
-
-      <ListGroupItem
-        action
-        href="/lostandfound"
-        tag="a" style={{backgroundColor: "pink"}}
-      >
-       Lost and Found
-      </ListGroupItem>
+<Card style={{ width: '80rem' }} >
      
-      <ListGroupItem
-        action
-        href="/findRooms"
-        tag="a" style={{backgroundColor: "pink"}}
-      >
-        Find Rooms
-      </ListGroupItem>
- 
-    </ListGroup>
-
-
-
-      {/* </Col> */}
-   
-    
-
-     
-
-{/* </Row> */}
-
-
-
-
+    </Card>
   </div>)
 };
 

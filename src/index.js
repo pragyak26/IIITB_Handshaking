@@ -7,25 +7,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import FindRooms from './FindRooms';
 import Donate from './Donate';
 import GeeksforGeeks from './Gfg';
-
-
-
+import Login from './Login';
+import StudentHomePage from './StudentHomePage';
+import Getimage from './Getimage';
+import { Buffer } from 'buffer';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-   <Donate/>
-   {/* <GeeksforGeeks/> */}
-   {/* <Login /> */}
-    {/* <Signup /> */}
-    {/* <AlumniHomePage/> */}
-    {/* <StudentHomePage/> */}
-    {/* <FindRooms /> */}
-
-   
-
+    <App /> 
+    {/* <StudentHomePage /> */}
+     {/* <Getimage/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

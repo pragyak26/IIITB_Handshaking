@@ -1,41 +1,95 @@
 import React from 'react';
-
-
 import { Container, Form, Input, Row } from 'reactstrap';
 import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
 import { Card,CardBody } from 'reactstrap';
-import { Button } from 'reactstrap';
 import StudentHomePage from './StudentHomePage';
 import { Col } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import { useState } from 'react';
+import axios from "axios";
+import base_url from './api/bootapi';
+import './App.css';
+import Button from '@mui/material/Button';
 
 
+
+function notify(){ 
+  toast("Product added succesfully!");
+}
 function Sell(){
+
+  const [file,setfile]=useState({});
+  const [donateId,setdonateId]=useState({});
+  const [userdata,setuser]=useState({});
+
+  const handleform_sell=(e)=>{
+    console.log(userdata);
+    postdatatoserver(userdata);
+    e.preventDefault();
+    notify();
+    e.target.value=null
+  };
+
+  const postdatatoserver = async (data)=>{
+    console.log(userdata)
+    await axios.post(`${base_url}/sell/addItem` ,data).then(
+      (response)=>{
+          console.log(response);
+          console.log("success");
+          setdonateId({...donateId,id:response.data.sid});
+          console.log(donateId.id);
+      },
+      (error)=>{
+          console.log(error);
+          console.log("error");
+      }
+    )
+    const data1 = new FormData();
+    data1.append('file',file.selectedFile);
+    console.warn(file.selectedFile);
+    axios.post(`${base_url}/upload-file/s_`+donateId.id , data1,{})
+    .then(res => {
+      console.warn(res);
+    })
+  };
+
+
 return(<div>
   <Container/>
-  <Card>
+  
+
+ <Col > <StudentHomePage /></Col>
+ 
+  <Col><Card className='text-center' variant="outlined">
     <CardBody>
-    <h8 style={{color: "Blue"}}>
+    <h8 style={{color: "Blue"}} class="heading">
       Fill the details of item you want to Sell{' '}
     </h8>
     </CardBody>
-  </Card>
-<Row>
- <Col> <StudentHomePage /></Col>
- 
-  
+  </Card></Col>
 
 <Col>
-    <Form>
+
+<Card>
+
+<CardBody>
+
+
+
+    <Form onSubmit={handleform_sell}>
   <FormGroup>
-    <Label for="exampleEmail">
+   
      Product Name
-    </Label>
+   
     <Input
-      id="exampleEmail"
+      id="product"
       name="email"
-      placeholder="with a placeholder"
-      type="email"
+      placeholder="product"
+      type="text"
+      onChange={(e)=>{
+        setuser({...userdata,name: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
@@ -43,10 +97,13 @@ return(<div>
       Details
     </Label>
     <Input
-      id="examplePassword"
-      name="password"
+      id="detail"
+      name="detail"
       placeholder="Condition of product"
       type="text"
+      onChange={(e)=>{
+        setuser({...userdata,details: e.target.value})
+      }}
     />
   </FormGroup>
   <FormGroup>
@@ -54,25 +111,19 @@ return(<div>
 
   </FormGroup>
 
-  <FormGroup>
-    <Label for="exampleText">
-      Image
-    </Label>
-    <Input
-      id="exampleText"
-      name="text"
-      type="textarea"
-    />
-  </FormGroup>
+ 
 
   <FormGroup>
     <Label for="exampleText">
      Price
     </Label>
     <Input
-      id="exampleText"
-      name="text"
-      type="textarea"
+      id="price"
+      name="price"
+      type="text"
+      onChange={(e)=>{
+        setuser({...userdata,price: e.target.value})
+      }}
     />
   </FormGroup>
 
@@ -84,16 +135,21 @@ return(<div>
       id="exampleFile"
       name="file"
       type="file"
+      onChange={(e)=>{
+       
+        setfile({...file, selectedFile: e.target.files[0],});
+      }}
     />
    
  
   </FormGroup> 
-  <Button>
-    Submit
-  </Button>
+  <Button variant="contained" size="medium" onClick={handleform_sell}>  Submit</Button>
+  
 </Form>
+</CardBody>
+</Card>
 </Col>
-</Row>
+
 </div>)
 };
 

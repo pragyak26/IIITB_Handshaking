@@ -12,7 +12,7 @@ import {
     Button,
 } from "reactstrap";
 
-const Room = ({room}) => {
+const Product = ({product}) => {
   return (
 
     <div>
@@ -21,24 +21,31 @@ const Room = ({room}) => {
 
 
 <Col>
-        <Card className='text-center' >
+        <Card className='text-center'  >
             <CardBody>
-                
-                {/* <CardSubtitle className='font-weight-bold'>{room.roomIdx} </CardSubtitle> */}
+               
+             
                 <Row>
-                    <Col>Address</Col>
+                    <Col>Product Name</Col>
                 
                 <Col>
                 <CardSubtitle 
-                 className='font-weight-bold'>{room.address}</CardSubtitle>
+                 className='font-weight-bold'>{product.productname}</CardSubtitle>
                 </Col>
                 
                     </Row>
 
 
                     <Row>
-                        <Col>Rent</Col>
-                        <Col> <CardSubtitle className='font-weight-bold'>{room.cost}</CardSubtitle></Col>
+                        <Col>Product Details</Col>
+                        <Col> <CardSubtitle className='font-weight-bold'>{product.details}</CardSubtitle></Col>
+                   
+
+                    </Row>
+
+                    <Row>
+                        <Col>Pictures</Col>
+                        <Col> <CardSubtitle className='font-weight-bold'>{product.details}</CardSubtitle></Col>
                    
 
                     </Row>
@@ -52,4 +59,4 @@ const Room = ({room}) => {
   )
 }
 
-export default Room;
+export default Product;

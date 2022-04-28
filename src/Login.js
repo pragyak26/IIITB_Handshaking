@@ -1,22 +1,28 @@
 import React from "react";
 import { Container, ListGroup } from "reactstrap";
-import { Card,CardBody } from "reactstrap";
-import { Form ,FormGroup,Label,Input,Button,FormText} from "reactstrap";
+import { Card,CardBody ,Button} from "reactstrap";
+import { Form ,FormGroup,Label,Input,FormText} from "reactstrap";
 import { Row,Col } from "reactstrap";
 import axios from "axios";
 import  { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom'
-import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
-import Signup from "./Signup";
-import { ListGroupItem } from "reactstrap";
-import { useNavigate } from "react-router-dom";
-import Home from "./Home";
-import StudentHomePage from "./StudentHomePage";
+import { Select } from "@material-ui/core";
+import './App.css';
+import base_url from "./api/bootapi";
+import { MenuItem } from "@material-ui/core";
 
+
+
+
+
+function notify(){ 
+
+  window.location.href = '/Home' ;
+
+}
 
 
 function Login(){
+  
 
 
   useEffect(()=>{
@@ -26,39 +32,26 @@ function Login(){
 const [userdata,setuser]=useState({});
 //form handler function
 
+const [val,setval]=useState({});
+
 const handleform_login=(e)=>{
   console.log(userdata);
   postdatatoserver(userdata);
   e.preventDefault();
-
-
-
-  
+ 
+ 
 };
-//creating fun to post data on server
+
 const postdatatoserver=(data)=>{
-  axios.post('${base_url}/addUser' ,data).then(
+  axios.post(`${base_url}/validate` ,data).then(
     (response)=>{
         console.log(response);
         console.log("success");
 
-
-
         let res =  response.data;
 
-        if(res.role === "Student")
-        
-        {
-    
-        window.location.href = 'https://leetcode.com/explore/'  ;
-        
-        }
-
-
-
-
-        if(response=="200"){
-          
+        if(res==true){
+          notify();
         }
     },
     (error)=>{
@@ -76,7 +69,9 @@ const postdatatoserver=(data)=>{
         <Container className="text-center my-3"/>
       <Card>
         <CardBody >
+        <img src="/iiitb_logo.jpg" className="img" style={{weight: 40 ,height:40}}/>
         <p className="text-center my-3" style={{color: "Blue"}}>
+      
           Login to IIITB-Handshake. {' '}
         </p>
         </CardBody>
@@ -89,6 +84,7 @@ const postdatatoserver=(data)=>{
 
 
       <Form onSubmit={handleform_login}>
+  
   <FormGroup>
     <Label for="username">
       User Name
@@ -118,6 +114,14 @@ const postdatatoserver=(data)=>{
       }}
     />
   </FormGroup>
+
+
+
+  
+
+      
+      
+    
   <FormGroup>
     <Label for="exampleSelect">
       Select
@@ -126,24 +130,25 @@ const postdatatoserver=(data)=>{
       id="select"
       name="select"
       type="select"
-    >
+   
       onChange={(e)=>{
         setuser({...userdata,role: e.target.value})
       }}
+      >
       <option value="N/A">Select</option>
-      <option>
+      <option value="STUDENT">
         Student
       </option>
-      <option>
+      <option value="ALUMNI">
         Alumni
       </option>
-      <option>
+      <option value="ADMIN">
         Admin
       </option>
-      
     </Input>
     
   </FormGroup>
+  
   
   
  
@@ -158,14 +163,11 @@ const postdatatoserver=(data)=>{
   </FormGroup>
 <Row>
 <Col>
-<Button >
-    Submit12e
+<Button variant="contained" size="medium">  Submit</Button>
   
-  </Button>
-  {/* <a href="/studenthomepage" className="btn btn-success" type="submit" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Sgdfgdg</a> */}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Signup</a>
-{/* backgroundColor:'#15983e',color:"white",width:"30vw" */}
+
 
 </Col>
 

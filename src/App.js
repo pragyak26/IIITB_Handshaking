@@ -1,6 +1,5 @@
 
 import './App.css';
-
 import StudentHomePage from './StudentHomePage';
 import { BrowserRouter, Routes,Route,Router} from 'react-router-dom';
 import React from "react";
@@ -15,35 +14,31 @@ import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import Header from './Header';
-
+import Buy from './Buy';
+import Found from './Found';
 function App() {
   return (
  
-    <div >
+  <div >
       
-      <Container>
-      <Container/>
-  <Card>
+    <Container>
+    <Container/>
+
+  {/* <Card>
     <CardBody className='bg-warning'>
     <h4 style={{color: "Blue"}}   className="text-center my-3">
       IIITB-Handshaking {' '}
     </h4>
     </CardBody>
-  </Card>
-      <BrowserRouter>
-      
-        <Row>
-        <Col md={6}>
-          {/* <StudentHomePage/> */}
-            <Login />
-          </Col>
-         
-    
-          <Col md={9}>
-       
-          <Routes>
+  </Card> */}
+
+     
+     
+  <BrowserRouter>   
+  <Routes>
+
+  <Route path='*' element={<Login />} />
   <Route path="/header" element={<Header />} />
-  <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup />} />
   <Route path="/home" element={<Home />} />
   <Route path="/studenthomepage" element={<StudentHomePage />} />
@@ -52,16 +47,11 @@ function App() {
   <Route path="/findRooms" element={<FindRooms />} />
   <Route path="/sell" element={<Sell />} />
   <Route path="/lostandfound" element={<Lostandfound />} />
- 
+  <Route path="/buy" element={<Buy />} />
+  <Route path="/found" element={<Found />} />
   </Routes>
      
-  </Col>
      
-     
-    
-        </Row>
-   
-       
    </BrowserRouter>
    </Container>
    

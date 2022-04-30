@@ -16,6 +16,10 @@ import Signup from './Signup';
 import Header from './Header';
 import Buy from './Buy';
 import Found from './Found';
+import Buynow from './buynow'
+import AdminHomePage from './AdminHomePage';
+import AlumniHomePage from './AlumniHomePage'
+import AvailableRooms from './AvailableRooms';
 function App() {
   return (
  
@@ -42,6 +46,8 @@ function App() {
   <Route path="/signup" element={<Signup />} />
   <Route path="/home" element={<Home />} />
   <Route path="/studenthomepage" element={<StudentHomePage />} />
+  <Route path="/Adminhomepage" element={<AdminHomePage />} />
+  <Route path="/Alumnihomepage" element={<AlumniHomePage />} />
   <Route path="/home" element={<Home />} />
   <Route path="/donate" element={<Donate />} />
   <Route path="/findRooms" element={<FindRooms />} />
@@ -49,6 +55,10 @@ function App() {
   <Route path="/lostandfound" element={<Lostandfound />} />
   <Route path="/buy" element={<Buy />} />
   <Route path="/found" element={<Found />} />
+  <Route path="/buynow" element={<Buynow />} />
+  <Route path="/alumnihome" element={<AlumniHomePage />} />
+  <Route path="/donate" element={<Donate />} />
+  <Route path="/availableRooms" element={<AvailableRooms />} />
   </Routes>
      
      

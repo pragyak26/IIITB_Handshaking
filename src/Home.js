@@ -5,6 +5,7 @@ import { Row,Col } from 'reactstrap';
 import StudentHomePage from './StudentHomePage';
 
 function Home(){
+  console.log(localStorage.getItem('user'));
 return (<div>
 
 

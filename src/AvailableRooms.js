@@ -6,6 +6,7 @@ import axios from "axios";
 import  { useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import { Card,CardBody } from "reactstrap";
+import base_url from "./api/bootapi";
 
 function AvailableRooms(){
     useEffect(()=>{
@@ -13,6 +14,7 @@ function AvailableRooms(){
     },[]);
   //function to call server
   const [userdata,setuser]=useState({});
+  const [file,setfile]=useState({});
   //form handler function
   
   const handleform_login=(e)=>{
@@ -22,10 +24,17 @@ function AvailableRooms(){
   };
   //creating fun to post data on server
   const postdatatoserver=(data)=>{
-    axios.post('${base_url}/addUser' ,data).then(
+    axios.post(`${base_url}/addRoom` ,data).then(
       (response)=>{
           console.log(response);
           console.log("success");
+          const data1 = new FormData();
+          data1.append('file',file.selectedFile);
+          console.warn(file.selectedFile);
+          axios.post(`${base_url}/upload-file/r_`+response.data.roomIdx , data1,{})
+          .then(res => {
+            console.warn(res);
+          })
       },
       (error)=>{
           console.log(error);
@@ -98,6 +107,41 @@ function AvailableRooms(){
         }}
       />
     </FormGroup>
+
+
+
+    <FormGroup>
+      <Label for="Contact">
+        Cost
+      </Label>
+      <Input
+        id="contact"
+        name="contact"
+        placeholder="with a placeholder"
+        type="text"
+        onChange={(e)=>{
+          setuser({...userdata,cost: e.target.value})
+        }}
+      />
+    </FormGroup>
+
+
+    <FormGroup>
+    <Label for="exampleFile">
+      File
+    </Label>
+    <Input
+      id="exampleFile"
+       onfocus="this.value=''"
+      name="file"
+      type="file"
+      onChange={(e)=>{
+       
+        setfile({...file, selectedFile: e.target.files[0],});
+      }}
+    />
+    </FormGroup>
+
     
     
     <FormGroup check>
@@ -111,11 +155,7 @@ function AvailableRooms(){
       Submit
     </Button>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    {/* <Button onClick={window.location.href ="http://localhost:3000/Signup"}>
-      Sign Up
-    </Button> */}
   
-    {/* <Link to="/Signup" className="btn btn-primary">Sign up1</Link> */}
   </Form>
         </Col>
       </Row>

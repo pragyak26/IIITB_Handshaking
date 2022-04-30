@@ -3,7 +3,7 @@ import { Container, Form, Input, Row } from 'reactstrap';
 import { FormGroup } from 'reactstrap';
 import { Label } from 'reactstrap';
 import {Card,CardBody} from 'reactstrap';
-
+import Buy from './Buy';
 import { useState } from 'react';
 import axios from "axios";
 import base_url from './api/bootapi';
@@ -12,9 +12,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Col } from 'reactstrap';
 import StudentHomePage from './StudentHomePage';
 import Button from '@mui/material/Button';
+import DonateShow from './DonateShow';
+
 function notify(){ 
   toast("Product added succesfully!");
 }
+
 function Donate(){
 
   const [file,setfile]=useState({});
@@ -37,35 +40,36 @@ function Donate(){
       (response)=>{
           console.log(response);
           console.log("success");
-          setdonateId({...donateId,id:response.data.donateId});
-          console.log(donateId.id);
+          // setdonateId({...donateId,id:response.data.donateId});
+          // console.log(donateId.id);
+          const data1 = new FormData();
+          data1.append('file',file.selectedFile);
+          console.warn(file.selectedFile);
+          axios.post(`${base_url}/upload-file/d_`+ response.data.donateId, data1,{})
+          .then(res => {
+            console.warn(res);
+          })
       },
       (error)=>{
           console.log(error);
           console.log("error");
       }
     )
-    const data1 = new FormData();
-    data1.append('file',file.selectedFile);
-    console.warn(file.selectedFile);
-    axios.post(`${base_url}/upload-file/d_`+donateId.id , data1,{})
-    .then(res => {
-      console.warn(res);
-    })
+    
   };
 
 
 return(<div>
   <Container/>
+  <Col > <StudentHomePage /></Col>
  
-    
   
 <Card>
   <CardBody>
 
 
 
-  <Col > <StudentHomePage /></Col>
+  
   <Col>
   
   <Card className="text-center">
@@ -132,6 +136,12 @@ return(<div>
 
   </CardBody>
 </Card>
+
+<Card>
+  <DonateShow />
+</Card>
+
+
     
 </div>)
 };

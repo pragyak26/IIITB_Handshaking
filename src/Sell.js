@@ -31,27 +31,30 @@ function Sell(){
     e.target.value=null
   };
 
+  
+
   const postdatatoserver = async (data)=>{
     console.log(userdata)
+    
     await axios.post(`${base_url}/sell/addItem` ,data).then(
       (response)=>{
           console.log(response);
           console.log("success");
-          setdonateId({...donateId,id:response.data.sid});
-          console.log(donateId.id);
+        
+          const data1 = new FormData();
+          data1.append('file',file.selectedFile);
+          console.warn(file.selectedFile);
+          axios.post(`${base_url}/upload-file/s_`+response.data.sid , data1,{})
+          .then(res => {
+            console.warn(res);
+          })
       },
       (error)=>{
           console.log(error);
           console.log("error");
       }
     )
-    const data1 = new FormData();
-    data1.append('file',file.selectedFile);
-    console.warn(file.selectedFile);
-    axios.post(`${base_url}/upload-file/s_`+donateId.id , data1,{})
-    .then(res => {
-      console.warn(res);
-    })
+    // sendImage();
   };
 
 
@@ -87,6 +90,7 @@ return(<div>
       name="email"
       placeholder="product"
       type="text"
+      onfocus="this.value=''"
       onChange={(e)=>{
         setuser({...userdata,name: e.target.value})
       }}
@@ -101,6 +105,7 @@ return(<div>
       name="detail"
       placeholder="Condition of product"
       type="text"
+       onfocus="this.value=''"
       onChange={(e)=>{
         setuser({...userdata,details: e.target.value})
       }}
@@ -120,6 +125,7 @@ return(<div>
     <Input
       id="price"
       name="price"
+       onfocus="this.value=''"
       type="text"
       onChange={(e)=>{
         setuser({...userdata,price: e.target.value})
@@ -133,6 +139,7 @@ return(<div>
     </Label>
     <Input
       id="exampleFile"
+       onfocus="this.value=''"
       name="file"
       type="file"
       onChange={(e)=>{

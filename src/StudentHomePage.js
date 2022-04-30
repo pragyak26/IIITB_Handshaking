@@ -4,7 +4,7 @@ import {Card, CardBody, Input, ListGroup,ListGroupItem} from 'reactstrap';
 import { Button } from 'reactstrap';
 import { Container, Row ,Col} from 'reactstrap';
 import './StudentHomePage.css';
-  import { Navbar,NavbarBrand } from 'reactstrap';
+  import { Navbar,NavbarBrand,Nav } from 'reactstrap';
 import { Height } from '@material-ui/icons';
 
 
@@ -21,6 +21,10 @@ function StudentHomePage()
     
   <img src="/iiitb_logo.jpg" className="img" style={{weight: 40 ,height:40}}/>
  
+
+         
+           
+
     <NavbarBrand href="/home" style={{color:"white"}} >
       Home
     </NavbarBrand>
@@ -48,6 +52,14 @@ function StudentHomePage()
       Find Rooms
     </NavbarBrand>
  
+
+
+
+
+   
+       
+
+
     </Navbar>
 
 <Card style={{ width: '80rem' }} >

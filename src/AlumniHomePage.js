@@ -40,20 +40,20 @@ function AlumniHomePage(){
 
          </ListGroup>
          </Col>
-<BrowserRouter>
+{/* <BrowserRouter> */}
 
     <Col md={9}>
-    <Routes>
+    {/* <Routes>
   <Route path="/alumnihome" element={<AlumniHomePage />} />
   <Route path="/donate" element={<Donate />} />
   <Route path="/availableRooms" element={<AvailableRooms />} />
   <Route path="/sell" element={<Sell />} />
   
  
-  </Routes>
+  </Routes> */}
 
     </Col>
-</BrowserRouter>
+{/* </BrowserRouter> */}
    
 </Row>
            

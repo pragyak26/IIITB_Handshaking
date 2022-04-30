@@ -9,16 +9,26 @@ import { Select } from "@material-ui/core";
 import './App.css';
 import base_url from "./api/bootapi";
 import { MenuItem } from "@material-ui/core";
+import { Grid,Paper, Avatar, TextField,  Typography} from '@material-ui/core'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 
 
-
-
-function notify(){ 
+function student(){ 
 
   window.location.href = '/Home' ;
 
 }
+// function student(){ 
+
+//   window.location.href = '/Alu' ;
+
+// }
+// function student(){ 
+
+//   window.location.href = '/Home' ;
+
+// }
 
 
 function Login(){
@@ -49,10 +59,27 @@ const postdatatoserver=(data)=>{
         console.log("success");
 
         let res =  response.data;
+        localStorage.setItem('user',response.data);
 
-        if(res==true){
-          notify();
+
+        const myJSON = JSON.stringify(res.role);
+        console.log(res.role);
+       // console.log(res.role=="STUDENT");
+        if(res.role=="STUDENT"){
+          window.location.href = '/Home' 
         }
+        if(res.role=="ALUMNI"){
+          window.location.href = '/AlumniHomePage' 
+        }
+        // console.log(typeof(res.role))
+        // if(res.role.localeCompare("ALUMNI")){
+        //  student();
+        // }
+        // if(res.role=="Admin"){
+        //   window.location.href = '/AdminHomePage' 
+        // }
+
+
     },
     (error)=>{
         console.log(error);
@@ -61,14 +88,19 @@ const postdatatoserver=(data)=>{
   )
 };
 
+const avatarStyle={backgroundColor:'#1bbd7e'}
+
+    return (
+    
+<div>
 
 
-    return (<div>
-    
-    
-        <Container className="text-center my-3"/>
+
+
+                <Container className="text-center my-3"/>
       <Card>
         <CardBody >
+        <Avatar style={avatarStyle}></Avatar>
         <img src="/iiitb_logo.jpg" className="img" style={{weight: 40 ,height:40}}/>
         <p className="text-center my-3" style={{color: "Blue"}}>
       
@@ -163,7 +195,7 @@ const postdatatoserver=(data)=>{
   </FormGroup>
 <Row>
 <Col>
-<Button variant="contained" size="medium">  Submit</Button>
+<Button variant="contained" size="medium" >  Submit</Button>
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Signup</a>
@@ -172,8 +204,6 @@ const postdatatoserver=(data)=>{
 </Col>
 
 </Row>
-  
- 
 
 </Form>
 
@@ -184,9 +214,9 @@ const postdatatoserver=(data)=>{
         </CardBody>
       </Card>
     
-     
+      </div>)
 
-    </div>)
+      
     };
     
     export default Login;

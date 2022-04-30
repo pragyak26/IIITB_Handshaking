@@ -20,14 +20,15 @@ import { toast } from "react-toastify";
 import base_url from "./api/bootapi";
 
 
-function buynow(){ 
 
-  window.location.href = '/buynow' ;
+function contactOwner(){ 
+
+  // window.location.href = '/Home' ;
+  <p>contact details</p>
 
 }
-
 var Buffer =require("buffer/").Buffer
-const Buyproduct = ({product1}) => {
+const Donateproduct = ({product1}) => {
 
    
    
@@ -38,6 +39,7 @@ const Buyproduct = ({product1}) => {
         });
 
         const getimageFromServer=()=>{
+          console.log(product1.image);
             axios.get(`${base_url}/getImage/`+product1.image ,{
                 responseType: "arraybuffer",
               }).then(
@@ -62,7 +64,7 @@ return(
 
 <div>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
   <Card style={{width:"400px", height:"550px"}}>
     <CardImg
@@ -72,25 +74,23 @@ return(
       width="400px"
       height="400px"
     />
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <CardBody>
       <CardTitle tag="h5">
       {product1.name}
       </CardTitle>
 
-      <CardSubtitle
+      {/* <CardSubtitle
         className="mb-2 text-muted"
         tag="h6"
       > 
          <h6>Price :</h6>{product1.price}
-      </CardSubtitle>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </CardSubtitle> */}
       <CardText>
          {product1.details}
       </CardText>
 
-      <Button variant="contained" size="medium" onClick={buynow}>
-        Buy Now
+      <Button variant="contained" size="medium" onClick={contactOwner}>
+        Contact Owner
       </Button>
     </CardBody>
   </Card>
@@ -104,4 +104,4 @@ return(
 
 
 
-export default Buyproduct
+export default Donateproduct

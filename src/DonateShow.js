@@ -5,11 +5,12 @@ import base_url from './api/bootapi';
 import { toast } from 'react-toastify';
 import { Col,Row } from 'reactstrap';
 import StudentHomePage from './StudentHomePage';
-import Buyproduct from './Buyproduct';
+
+import Donateproduct from './Donateproduct';
 import {
     CardGroup,Card
 } from "reactstrap";
-function Buy(){
+function DonateShow(){
 
 
 
@@ -30,7 +31,7 @@ function Buy(){
      ]);
     //function to get available rooms from server
     const getAllProductFromServer=()=>{
-            axios.get(`${base_url}/getSellProducts`).then(
+            axios.get(`${base_url}/getDonateProducts`).then(
                 (response)=>{
                         console.log(response);
                         // toast.success("Products");
@@ -50,14 +51,14 @@ function Buy(){
         <div>
 
 
-<Col > <StudentHomePage /></Col>
+
 <Col><h3 className='center'>Available Products</h3></Col>
 <Col >
 <CardGroup>
 
                 {
                         product1.length>0
-                        ? product1.map((item)=><Buyproduct product1={item} />)
+                        ? product1.map((item)=><Donateproduct product1={item} />)
                         :"No products"
                         
                         
@@ -72,4 +73,4 @@ function Buy(){
     )
         };
 
-export default Buy;
+export default DonateShow;

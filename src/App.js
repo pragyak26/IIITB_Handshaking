@@ -20,6 +20,10 @@ import Buynow from './buynow'
 import AdminHomePage from './AdminHomePage';
 import AlumniHomePage from './AlumniHomePage'
 import AvailableRooms from './AvailableRooms';
+
+
+
+
 function App() {
   return (
  

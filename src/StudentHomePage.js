@@ -6,7 +6,15 @@ import { Container, Row ,Col} from 'reactstrap';
 import './StudentHomePage.css';
   import { Navbar,NavbarBrand,Nav } from 'reactstrap';
 import { Height } from '@material-ui/icons';
+// import WebFont from 'webfontloader';
 
+// useEffect(() => {
+//   WebFont.load({
+//     google: {
+//       families: ['Droid Sans', 'Chilanka']
+//     }
+//   });
+//  }, []);
 
 function StudentHomePage()
 {return (<div>
@@ -17,7 +25,13 @@ function StudentHomePage()
 
 <Container/>
 
-  <Navbar bg="primary" variant="dark" style={{backgroundColor: "#232F3E"} }>
+<div style={{height:50}} className="centered-div"> 
+<p className='text-center font-link'>
+         iGLOBE
+      </p>
+</div>
+
+  <Navbar bg="primary" variant="dark" style={{backgroundColor: "#232F3E",height:60}} >
     
   <img src="/iiitb_logo.jpg" className="img" style={{weight: 40 ,height:40}}/>
  

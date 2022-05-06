@@ -20,6 +20,7 @@ import Buynow from './buynow'
 import AdminHomePage from './AdminHomePage';
 import AlumniHomePage from './AlumniHomePage'
 import AvailableRooms from './AvailableRooms';
+import ContactOwner from './ContactOwner';
 
 
 
@@ -29,8 +30,8 @@ function App() {
  
   <div >
       
-    <Container>
-    <Container/>
+    {/* <Container> */}
+    {/* <Container/> */}
 
   {/* <Card>
     <CardBody className='bg-warning'>
@@ -63,12 +64,13 @@ function App() {
   <Route path="/alumnihome" element={<AlumniHomePage />} />
   <Route path="/donate" element={<Donate />} />
   <Route path="/availableRooms" element={<AvailableRooms />} />
+  <Route path="/ContactOwner" element={<ContactOwner/>} />
   </Routes>
      
      
    </BrowserRouter>
-   </Container>
-   
+   {/* </Container>
+    */}
     </div>
   );
 }

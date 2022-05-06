@@ -51,7 +51,7 @@ function Buy(){
 
 
 <Col > <StudentHomePage /></Col>
-<Col><h3 className='center'>Available Products</h3></Col>
+<Col><h3 className='text-center'>Available Products</h3></Col>
 <Col >
 <CardGroup>
 

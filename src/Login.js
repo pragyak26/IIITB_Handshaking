@@ -19,21 +19,12 @@ function student(){
   window.location.href = '/Home' ;
 
 }
-// function student(){ 
 
-//   window.location.href = '/Alu' ;
-
-// }
-// function student(){ 
-
-//   window.location.href = '/Home' ;
-
-// }
 
 
 function Login(){
   
-
+  
 
   useEffect(()=>{
       document.title="Login||IIITB"
@@ -53,31 +44,44 @@ const handleform_login=(e)=>{
 };
 
 const postdatatoserver=(data)=>{
-  axios.post(`${base_url}/validate` ,data).then(
-    (response)=>{
-        console.log(response);
+  axios.post(`${base_url}/token` ,data).then(
+    (res1)=>{
+        console.log(res1);
         console.log("success");
+        localStorage.setItem('token', res1.data.token);
 
-        let res =  response.data;
-        localStorage.setItem('user',response.data);
+        axios.interceptors.request.use(
+          config => {
+            config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+            console.log(config.headers.authorization);
+            return config;
+          },
+          error => {
+            return Promise.reject(error);
+          }
+        )
 
-
-        const myJSON = JSON.stringify(res.role);
-        console.log(res.role);
-       // console.log(res.role=="STUDENT");
-        if(res.role=="STUDENT"){
-          window.location.href = '/Home' 
-        }
-        if(res.role=="ALUMNI"){
-          window.location.href = '/AlumniHomePage' 
-        }
-        // console.log(typeof(res.role))
-        // if(res.role.localeCompare("ALUMNI")){
-        //  student();
-        // }
-        // if(res.role=="Admin"){
-        //   window.location.href = '/AdminHomePage' 
-        // }
+        
+        
+        axios.post(`https://934a-103-156-19-229.in.ngrok.io/validate`,data, {'authorization' : `Bearer ${localStorage.getItem('token')}`,
+        "Access-Control-Allow-Origin" : "*",
+        // "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        // "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+      } ).then(
+          (response)=>{
+            let res =  response.data;
+            localStorage.setItem('user',response.data.username);
+    
+            console.log(res.role);
+      
+            if(res.role=="ROLE_STUDENT"){
+              window.location.href = '/Home' 
+            }
+            if(res.role=="ROLE_ALUMNI"){
+              window.location.href = '/AlumniHomePage' 
+            }
+          }
+        )
 
 
     },
@@ -97,7 +101,7 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
 
 
 
-                <Container className="text-center my-3"/>
+      <Container className="text-center my-3"/>
       <Card>
         <CardBody >
         <Avatar style={avatarStyle}></Avatar>
@@ -115,7 +119,7 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
       <Col md={4}>
 
 
-      <Form onSubmit={handleform_login}>
+      <Form onSubmit={handleform_login} class="center">
   
   <FormGroup>
     <Label for="username">
@@ -168,13 +172,13 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
       }}
       >
       <option value="N/A">Select</option>
-      <option value="STUDENT">
+      <option value="ROLE_STUDENT">
         Student
       </option>
-      <option value="ALUMNI">
+      <option value="ROLE_ALUMNI">
         Alumni
       </option>
-      <option value="ADMIN">
+      <option value="ROLE_ADMIN">
         Admin
       </option>
     </Input>

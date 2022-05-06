@@ -49,8 +49,8 @@ return (<div>
     <center>
 
     <SimpleImageSlider autoPlay
-          width={1000}
-          height={504}
+          width='80%'
+          height='80%'
           images={images}
           showBullets={true}
           showNavs={true}

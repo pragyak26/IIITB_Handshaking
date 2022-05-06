@@ -17,51 +17,30 @@ import Buyproduct from './Buyproduct';
 
 
 
-function Buynow(){
-
-  const notify = async() => { 
-    await buyProduct();
-    window.location.href = 'https://phonepe.force.com/login?locale=us' ;
-  }
-
-  useEffect(() => {
-    console.log(`${base_url}/buySellProduct/` + localStorage.getItem('sid'));
-  });
-
-
-  const [userdata,setuser]=useState({});
-  //form handler function
+function ContactOwner(){
   
-  const [val,setval]=useState({});
-  
-  const handleform_login=(e)=>{
-  console.log(userdata);
-  // postdatatoserver(userdata);
-  e.preventDefault();
-  
-  
-  };
-  
-  const buyProduct = async () => {
-    console.log(`${base_url}/buySellProduct/` + localStorage.getItem('sid'));
-    await axios.get(`${base_url}/buySellProduct/` + localStorage.getItem('sid')).then(
-    (response)=>{
-        console.log(response);
-        console.log("success");
-    },
-    (error)=>{
-        console.log(error);
-        console.log("error");
-    }
-  );
-  localStorage.removeItem('sid');
-  };
-
-
-
-
-
 const avatarStyle={backgroundColor:'#1bbd7e'}
+
+const notify = async() => { 
+  await buyProduct();
+  window.location.href = 'https://web.whatsapp.com/' ;
+}
+
+
+    const buyProduct = async () => {
+      console.log(`${base_url}/buySellProduct/` + localStorage.getItem('did'));
+      await axios.get(`${base_url}/buySellProduct/` + localStorage.getItem('did')).then(
+      (response)=>{
+          console.log(response);
+          console.log("success");
+      },
+      (error)=>{
+          console.log(error);
+          console.log("error");
+      }
+    );
+    localStorage.removeItem('did');
+    };
 
     return (
     
@@ -75,10 +54,10 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
         <CardBody >
         {/* <Avatar style={avatarStyle}></Avatar> */}
         <img src="/iiitb_logo.jpg" className="img" style={{weight: 40 ,height:40}}/>
-        <p className="text-center my-3" style={{color: "Blue"}}>
+        {/* <p className="text-center my-3" style={{color: "Blue"}}>
       
          Buy Now. {' '}
-        </p>
+        </p> */}
 
 <Row>
 <Col>
@@ -99,7 +78,7 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
    Contact Details: 6870096221
   </ListGroupItem>
   <ListGroupItem>
-    UPI ID:  {localStorage.getItem('user')}@icici
+    Gmail ID:  {localStorage.getItem('user')}@gmail.com
   </ListGroupItem>
 
   {/* <ListGroupItem>
@@ -108,7 +87,7 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
 </ListGroup>
 
 
-<Button  onClick={notify} >Pay Now</Button>
+<Button  onClick={notify}>Whats App</Button>
 
 
 
@@ -126,6 +105,6 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
       
     };
     
-    export default Buynow;
+    export default ContactOwner;
 
     

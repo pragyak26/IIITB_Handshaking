@@ -23,7 +23,7 @@ import base_url from "./api/bootapi";
 
 function contactOwner(){ 
 
-  // window.location.href = '/Home' ;
+  window.location.href = '/ContactOwner' ;
   <p>contact details</p>
 
 }
@@ -91,6 +91,7 @@ return(
 
       <Button variant="contained" size="medium" onClick={contactOwner}>
         Contact Owner
+        {localStorage.setItem('did',product1.donateId)}
       </Button>
     </CardBody>
   </Card>

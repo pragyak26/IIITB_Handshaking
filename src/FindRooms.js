@@ -39,8 +39,8 @@ function FindRooms(){
 
 
 <Col > <StudentHomePage /></Col>
-<Col><h5>Available Room</h5></Col>
-<img src="/iiitb_logo.jpg" className="img" style={{height: 40, width: 40}}/>
+<Col><h5 >Available Room</h5></Col>
+
 <Col >
 
       

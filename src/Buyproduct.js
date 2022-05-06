@@ -19,10 +19,11 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import base_url from "./api/bootapi";
 
-
+// let buyproductid=sid;
 function buynow(){ 
 
   window.location.href = '/buynow' ;
+
 
 }
 
@@ -62,7 +63,7 @@ return(
 
 <div>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
 
   <Card style={{width:"400px", height:"550px"}}>
     <CardImg
@@ -84,13 +85,14 @@ return(
       > 
          <h6>Price :</h6>{product1.price}
       </CardSubtitle>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
       <CardText>
          {product1.details}
       </CardText>
 
-      <Button variant="contained" size="medium" onClick={buynow}>
+      <Button variant="contained" size="medium" onClick={buynow}   >
         Buy Now
+        {localStorage.setItem('sid',product1.sid)}
       </Button>
     </CardBody>
   </Card>

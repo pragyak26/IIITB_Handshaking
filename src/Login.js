@@ -21,8 +21,9 @@ function student(){
 }
 
 
-
 function Login(){
+  
+   
   
   
 
@@ -43,53 +44,88 @@ const handleform_login=(e)=>{
  
 };
 
-const postdatatoserver=(data)=>{
-  axios.post(`${base_url}/token` ,data).then(
-    (res1)=>{
-        console.log(res1);
-        console.log("success");
-        localStorage.setItem('token', res1.data.token);
+const postdatatoserver=async(data)=>{
+  // axios.post(`${base_url}/token` ,data).then(
+  //   (res1)=>{
+  //       console.log(res1);
+  //       console.log("success");
+  //       localStorage.setItem('token', res1.data.token);
 
-        axios.interceptors.request.use(
-          config => {
-            config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
-            console.log(config.headers.authorization);
-            return config;
-          },
-          error => {
-            return Promise.reject(error);
-          }
-        )
+  //       axios.interceptors.request.use(
+  //         config => {
+  //           config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+  //           console.log(config.headers.authorization);
+  //           return config;
+  //         },
+  //         error => {
+  //           return Promise.reject(error);
+  //         }
+  //       )
 
         
         
-        axios.post(`https://934a-103-156-19-229.in.ngrok.io/validate`,data, {'authorization' : `Bearer ${localStorage.getItem('token')}`,
-        "Access-Control-Allow-Origin" : "*",
-        // "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        // "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-      } ).then(
-          (response)=>{
-            let res =  response.data;
-            localStorage.setItem('user',response.data.username);
+  //       axios.post(`https://934a-103-156-19-229.in.ngrok.io/validate`,data, {'authorization' : `Bearer ${localStorage.getItem('token')}`
+  //       // "Access-Control-Allow-Origin" : "*",
+  //       // "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+  //       // "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+  //     } ).then(
+  //         (response)=>{
+  //           let res =  response.data;
+  //           localStorage.setItem('user',response.data.username);
     
-            console.log(res.role);
+  //           console.log(res.role);
       
-            if(res.role=="ROLE_STUDENT"){
-              window.location.href = '/Home' 
-            }
-            if(res.role=="ROLE_ALUMNI"){
-              window.location.href = '/AlumniHomePage' 
-            }
-          }
-        )
+  //           if(res.role=="ROLE_STUDENT"){
+  //             window.location.href = '/Home' 
+  //           }
+  //           if(res.role=="ROLE_ALUMNI"){
+  //             window.location.href = '/AlumniHomePage' 
+  //           }
+  //         }
+  //       )
 
 
+  //   },
+  //   (error)=>{
+  //       console.log(error);
+  //       console.log("error");
+  //   }
+  // )
+  let obj = {
+    username : userdata.username,
+    password : userdata.password
+  }
+  console.log(obj);
+  await fetch(`${base_url}/token`,{
+    method:"POST",
+    headers: {
+      'Accept' : 'application/json, text/plain',
+      'Content-Type' : 'application/json; charset=UTF-8'
     },
-    (error)=>{
-        console.log(error);
-        console.log("error");
-    }
-  )
+    body:JSON.stringify(obj)
+  }).then((response)=> response.json())
+  .then((data) => {
+    console.log(data.token);
+    localStorage.setItem('token',data.token);
+    // console.log(data.value);
+  })
+
+  console.log(localStorage.getItem('token'));
+
+  await fetch(`${base_url}/validate`,{
+    method : "POST",
+    headers : {
+      'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type' : 'application/json; charset=UTF-8',
+      "Access-Control-Allow-Origin" : "*",
+      "Access-Control-Allow-Methods": " POST, PATCH, PUT, DELETE,OPTIONS",
+      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+    },
+    body : JSON.stringify(userdata)
+  }).then((response) => {
+    console.log(response);
+  })
+   
 };
 
 const avatarStyle={backgroundColor:'#1bbd7e'}
@@ -97,8 +133,6 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
     return (
     
 <div>
-
-
 
 
       <Container className="text-center my-3"/>
@@ -150,13 +184,7 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
       }}
     />
   </FormGroup>
-
-
-
-  
-
-      
-      
+   
     
   <FormGroup>
     <Label for="exampleSelect">

@@ -64,33 +64,33 @@ const postdatatoserver=async(data)=>{
 
         
         
-  //       axios.post(`https://934a-103-156-19-229.in.ngrok.io/validate`,data, {'authorization' : `Bearer ${localStorage.getItem('token')}`
-  //       // "Access-Control-Allow-Origin" : "*",
-  //       // "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-  //       // "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-  //     } ).then(
-  //         (response)=>{
-  //           let res =  response.data;
-  //           localStorage.setItem('user',response.data.username);
+        axios.post(`https://934a-103-156-19-229.in.ngrok.io/validate`,data, {'authorization' : `Bearer ${localStorage.getItem('token')}`
+        // "Access-Control-Allow-Origin" : "*",
+        // "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        // "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+      } ).then(
+          (response)=>{
+            let res =  response.data;
+            localStorage.setItem('user',response.data.username);
     
-  //           console.log(res.role);
+            console.log(res.role);
       
-  //           if(res.role=="ROLE_STUDENT"){
-  //             window.location.href = '/Home' 
-  //           }
-  //           if(res.role=="ROLE_ALUMNI"){
-  //             window.location.href = '/AlumniHomePage' 
-  //           }
-  //         }
-  //       )
+            if(res.role=="ROLE_STUDENT"){
+              window.location.href = '/Home' 
+            }
+            if(res.role=="ROLE_ALUMNI"){
+              window.location.href = '/AlumniHomePage' 
+            }
+          }
+        )
 
 
-  //   },
-  //   (error)=>{
-  //       console.log(error);
-  //       console.log("error");
-  //   }
-  // )
+    },
+    (error)=>{
+        console.log(error);
+        console.log("error");
+    }
+  )
   let obj = {
     username : userdata.username,
     password : userdata.password

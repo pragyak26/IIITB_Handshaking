@@ -130,13 +130,13 @@ function Signup(){
       }}
     >
       <option value="N/A">Select</option>
-      <option value="ROLE_STUDENT">
+      <option value="STUDENT">
         Student
       </option>
-      <option value="ROLE_ALUMNI">
+      <option value="ALUMNI">
         Alumni
       </option>
-      <option value="ROLE_ADMIN">
+      <option value="ADMIN">
         Admin
       </option>
       

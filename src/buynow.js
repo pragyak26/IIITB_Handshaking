@@ -11,7 +11,6 @@ import base_url from "./api/bootapi";
 import { MenuItem } from "@material-ui/core";
 import { Grid,Paper, Avatar, TextField,  Typography} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-
 import Buyproduct from './Buyproduct';
 
 
@@ -25,7 +24,7 @@ function Buynow(){
   }
 
   useEffect(() => {
-    console.log(`${base_url}/buySellProduct/` + localStorage.getItem('sid'));
+    console.log(`${base_url}/buySellProduct/${localStorage.getItem('sid')}/${localStorage.getItem('id')}`);
   });
 
 
@@ -43,8 +42,8 @@ function Buynow(){
   };
   
   const buyProduct = async () => {
-    console.log(`${base_url}/buySellProduct/` + localStorage.getItem('sid'));
-    await axios.get(`${base_url}/buySellProduct/` + localStorage.getItem('sid')).then(
+    //console.log(`${base_url}/buySellProduct/` + localStorage.getItem('sid'));
+    await axios.get(`${base_url}/buySellProduct/${localStorage.getItem('sid')}/${localStorage.getItem('id')}`).then(
     (response)=>{
         console.log(response);
         console.log("success");
@@ -57,19 +56,11 @@ function Buynow(){
   localStorage.removeItem('sid');
   };
 
-
-
-
-
 const avatarStyle={backgroundColor:'#1bbd7e'}
 
     return (
     
 <div>
-
-
-
-
                 <Container className="text-center my-3"/>
       <Card>
         <CardBody >
@@ -82,48 +73,29 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
 
 <Row>
 <Col>
-
-
 </Col>
 <Col>
 
-
-
-
-
 <ListGroup>
-  {/* <ListGroupItem>
-  Amount:
-  </ListGroupItem> */}
+
   <ListGroupItem>
    Contact Details: 6870096221
   </ListGroupItem>
   <ListGroupItem>
-    UPI ID:  {localStorage.getItem('user')}@icici
+    UPI ID:  {localStorage.getItem('username')}@icici
   </ListGroupItem>
 
-  {/* <ListGroupItem>
-    Vestibulum at eros
-  </ListGroupItem> */}
+ 
 </ListGroup>
 
 
 <Button  onClick={notify} >Pay Now</Button>
-
-
-
-
 </Col>
 </Row>
 
         </CardBody>
-      </Card>
-
-      
-    
-      </div>)
-
-      
+      </Card>  
+      </div>)    
     };
     
     export default Buynow;

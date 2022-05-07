@@ -10,13 +10,6 @@ import {
     CardGroup,Card
 } from "reactstrap";
 function Buy(){
-
-
-
-   
-
-
-
      useEffect(()=>{
          document.title="Products";
      },[])
@@ -40,10 +33,7 @@ function Buy(){
                 (error)=>{
                         console.log(error);
                 }
-            )      
-
-
-             
+            )                
 
     };
     return(
@@ -58,9 +48,7 @@ function Buy(){
                 {
                         product1.length>0
                         ? product1.map((item)=><Buyproduct product1={item} />)
-                        :"No products"
-                        
-                        
+                        :"No products"           
                         
                         }
                

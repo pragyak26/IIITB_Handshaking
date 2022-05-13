@@ -19,11 +19,11 @@ function student(){
   window.location.href = '/Home' ;
 
 }
-// function student(){ 
+function login_1(){ 
 
-//   window.location.href = '/Alu' ;
+  window.location.href = '/*' ;
 
-// }
+}
 // function student(){ 
 
 //   window.location.href = '/Home' ;
@@ -115,7 +115,7 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
       <Col md={4}>
 
 
-      <Form onSubmit={handleform_login}>
+      <Form onSubmit={handleform_login} data-testid="form1">
   
   <FormGroup>
     <Label for="username">
@@ -195,7 +195,10 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
   </FormGroup>
 <Row>
 <Col>
-<Button variant="contained" size="medium" >  Submit</Button>
+<Button 
+data-testid="login_button"
+
+variant="contained" size="medium" >  Submit</Button>
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/signup" className="btn btn-success" style={{marginTop:"10px"}} data-toggle="modal" data-target="#showmoreModal">Signup</a>

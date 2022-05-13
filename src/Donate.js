@@ -40,8 +40,7 @@ function Donate(){
       (response)=>{
           console.log(response);
           console.log("success");
-          // setdonateId({...donateId,id:response.data.donateId});
-          // console.log(donateId.id);
+     
           const data1 = new FormData();
           data1.append('file',file.selectedFile);
           console.warn(file.selectedFile);

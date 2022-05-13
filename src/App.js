@@ -21,6 +21,7 @@ import AdminHomePage from './AdminHomePage';
 import AlumniHomePage from './AlumniHomePage'
 import AvailableRooms from './AvailableRooms';
 import ContactOwner from './ContactOwner';
+import LostthingsShow from './LostthingShow';
 
 
 
@@ -29,17 +30,6 @@ function App() {
   return (
  
   <div >
-      
-    {/* <Container> */}
-    {/* <Container/> */}
-
-  {/* <Card>
-    <CardBody className='bg-warning'>
-    <h4 style={{color: "Blue"}}   className="text-center my-3">
-      IIITB-Handshaking {' '}
-    </h4>
-    </CardBody>
-  </Card> */}
 
      
      
@@ -50,7 +40,7 @@ function App() {
   <Route path="/header" element={<Header />} />
   <Route path="/signup" element={<Signup />} />
   <Route path="/home" element={<Home />} />
-  <Route path="/studenthomepage" element={<StudentHomePage />} />
+  <Route path="/StudentHomePage" element={<StudentHomePage />} />
   <Route path="/Adminhomepage" element={<AdminHomePage />} />
   <Route path="/Alumnihomepage" element={<AlumniHomePage />} />
   <Route path="/home" element={<Home />} />
@@ -65,12 +55,12 @@ function App() {
   <Route path="/donate" element={<Donate />} />
   <Route path="/availableRooms" element={<AvailableRooms />} />
   <Route path="/ContactOwner" element={<ContactOwner/>} />
+  <Route path="/LostthingsShow" element={<LostthingsShow/>}/>
   </Routes>
      
      
    </BrowserRouter>
-   {/* </Container>
-    */}
+  
     </div>
   );
 }

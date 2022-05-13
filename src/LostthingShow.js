@@ -5,14 +5,12 @@ import base_url from './api/bootapi';
 import { toast } from 'react-toastify';
 import { Col,Row } from 'reactstrap';
 import StudentHomePage from './StudentHomePage';
-
+import LostProduct from './LostProduct';
 import Donateproduct from './Donateproduct';
 import {
     CardGroup,Card
 } from "reactstrap";
-function DonateShow(){
-
-
+function LostthingsShow(){
 
      useEffect(()=>{
          document.title="Products";
@@ -27,7 +25,7 @@ function DonateShow(){
      ]);
     //function to get available rooms from server
     const getAllProductFromServer=()=>{
-            axios.get(`${base_url}/getDonateProducts`).then(
+            axios.get(`${base_url}/getLostProducts`).then(
                 (response)=>{
                         console.log(response);
                         // toast.success("Products");
@@ -48,13 +46,13 @@ function DonateShow(){
 
 
 
-<Col><h3 className='center'>Available Products</h3></Col>
+<Col><h5 className='center'>These things are found</h5></Col>
 <Col >
 <CardGroup>
 
                 {
                         product1.length>0
-                        ? product1.map((item)=><Donateproduct product1={item} />)
+                        ? product1.map((item)=><LostProduct product1={item} />)
                         :"No products"
                         
                         
@@ -69,4 +67,4 @@ function DonateShow(){
     )
         };
 
-export default DonateShow;
+export default LostthingsShow;
